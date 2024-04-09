@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <g id="icon_Ai4" transform="translate(-310 -1439)">
+    <rect id="사각형_5708" data-name="사각형 5708" width="100" height="100" transform="translate(310 1439)" fill="none"/>
+    <g id="그룹_174" data-name="그룹 174" transform="translate(-578.882 1263.735)">
+      <path id="사각형_5703" data-name="사각형 5703" d="M4.784-1H46a5.79,5.79,0,0,1,5.784,5.784V77.665A5.79,5.79,0,0,1,46,83.449H4.784A5.79,5.79,0,0,1-1,77.665V4.784A5.79,5.79,0,0,1,4.784-1ZM46,81.449a3.788,3.788,0,0,0,3.784-3.784V4.784A3.788,3.788,0,0,0,46,1H4.784A3.788,3.788,0,0,0,1,4.784V77.665a3.788,3.788,0,0,0,3.784,3.784Z" transform="translate(915.882 184.265)" fill="#707070"/>
+      <path id="사각형_5704" data-name="사각형 5704" d="M-1-1H39.027V57.406H-1ZM37.027,1H1V55.406H37.027Z" transform="translate(922.261 197.286)" fill="#707070"/>
+      <path id="선_10" data-name="선 10" d="M8.317.75H0A.75.75,0,0,1-.75,0,.75.75,0,0,1,0-.75H8.317a.75.75,0,0,1,.75.75A.75.75,0,0,1,8.317.75Z" transform="translate(937.115 259.769)" fill="#707070"/>
+      <path id="선_11" data-name="선 11" d="M3.7.75H0A.75.75,0,0,1-.75,0,.75.75,0,0,1,0-.75H3.7A.75.75,0,0,1,4.45,0,.75.75,0,0,1,3.7.75Z" transform="translate(939.424 191.209)" fill="#707070"/>
+      <g id="그룹_171" data-name="그룹 171">
+        <path id="선_12" data-name="선 12" d="M1,21.058H-1V0H1Z" transform="translate(952.447 226.879)" fill="#707070"/>
+        <path id="선_13" data-name="선 13" d="M4.349,1H0V-1H4.349Z" transform="translate(950.272 226.879)" fill="#707070"/>
+        <path id="선_14" data-name="선 14" d="M4.349,1H0V-1H4.349Z" transform="translate(950.272 247.937)" fill="#707070"/>
+      </g>
+      <g id="그룹_172" data-name="그룹 172">
+        <path id="선_15" data-name="선 15" d="M1,21.058H-1V0H1Z" transform="translate(941.274 226.879)" fill="#707070"/>
+        <path id="선_16" data-name="선 16" d="M4.349,1H0V-1H4.349Z" transform="translate(939.099 226.879)" fill="#707070"/>
+        <path id="선_17" data-name="선 17" d="M4.349,1H0V-1H4.349Z" transform="translate(939.099 247.937)" fill="#707070"/>
+      </g>
+      <g id="그룹_173" data-name="그룹 173">
+        <path id="선_18" data-name="선 18" d="M1,21.058H-1V0H1Z" transform="translate(930.101 226.879)" fill="#707070"/>
+        <path id="선_19" data-name="선 19" d="M4.349,1H0V-1H4.349Z" transform="translate(927.927 226.879)" fill="#707070"/>
+        <path id="선_20" data-name="선 20" d="M4.349,1H0V-1H4.349Z" transform="translate(927.927 247.937)" fill="#707070"/>
+      </g>
+      <rect id="사각형_5705" data-name="사각형 5705" width="4.349" height="4.349" transform="translate(927.927 232.117)" fill="#b7c5e8"/>
+      <path id="사각형_5705_-_윤곽선" data-name="사각형 5705 - 윤곽선" d="M0-.75H4.349A.75.75,0,0,1,5.1,0V4.349a.75.75,0,0,1-.75.75H0a.75.75,0,0,1-.75-.75V0A.75.75,0,0,1,0-.75ZM3.6.75H.75V3.6H3.6Z" transform="translate(927.927 232.117)" fill="#707070"/>
+      <rect id="사각형_5706" data-name="사각형 5706" width="4.349" height="4.349" transform="translate(939.099 238.953)" fill="#b7c5e8"/>
+      <path id="사각형_5706_-_윤곽선" data-name="사각형 5706 - 윤곽선" d="M0-.75H4.349A.75.75,0,0,1,5.1,0V4.349a.75.75,0,0,1-.75.75H0a.75.75,0,0,1-.75-.75V0A.75.75,0,0,1,0-.75ZM3.6.75H.75V3.6H3.6Z" transform="translate(939.099 238.953)" fill="#707070"/>
+      <rect id="사각형_5707" data-name="사각형 5707" width="4.349" height="4.349" transform="translate(950.272 232.117)" fill="#b7c5e8"/>
+      <path id="사각형_5707_-_윤곽선" data-name="사각형 5707 - 윤곽선" d="M0-.75H4.349A.75.75,0,0,1,5.1,0V4.349a.75.75,0,0,1-.75.75H0a.75.75,0,0,1-.75-.75V0A.75.75,0,0,1,0-.75ZM3.6.75H.75V3.6H3.6Z" transform="translate(950.272 232.117)" fill="#707070"/>
+    </g>
+  </g>
+</svg>

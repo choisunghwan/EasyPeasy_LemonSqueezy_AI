@@ -1,0 +1,15 @@
+# application.yml
+
+spring:
+  application:
+    name: AiProject
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ai_db
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  web:
+    resources:
+      static-locations: classpath:/static/
+
