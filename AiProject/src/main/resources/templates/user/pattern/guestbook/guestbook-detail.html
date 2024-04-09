@@ -1,0 +1,54 @@
+<!-- 🔔 S: 메타 헤더 영역 -->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="format-detection" content="telephone=no" />
+  <!--    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/img/guide/favicon_180.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="512x512" href="../../resources/img/guide/favicon_512.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="192x192"  href="../../resources/img/guide/favicon_192.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/img/guide/favicon_32.png">-->
+  <title>방문록 목록</title>
+  <link href="/css/pattern_css.css" type="text/css" rel="stylesheet" />
+</head>
+<!-- 🔔 E: 메타 헤더 영역 -->
+
+<!-- ❤️ S: 헤더 영역 -->
+<section th:replace="~{layout/header :: header}"></section>
+<!-- ❤️ E: 헤더 영역 -->
+
+<!-- 폼그룹 -->
+<div class="form-group">
+  <div class="form-tit">
+    레이블
+  </div>
+  <div class="form-conts">
+    <div class="textarea-wrap">
+      <textarea name="" class="form-control" placeholder="플레이스홀더"></textarea>
+      <p class="textarea-count">
+        <span class="text-primary">0</span><span class="text-num">/100</span>
+      </p>
+    </div>
+  </div>
+</div>
+<!-- //폼그룹 -->
+
+<!-- ❤️ S: 푸터 영역 -->
+<section th:replace="~{layout/footer :: footer}"></section>
+<!-- ❤️ E: 푸터 영역 -->
+
+<!-- ✅ 스크립트 : 라이브러리 -->
+<script src="/js/pattern/jquery.min.js"></script>
+<script src="/js/pattern/swiper-bundle.min.js"></script>
+
+<!-- ✅ 스크립트 : 패턴 페이지 -->
+
+<script src="/js/pattern/ui-pattern-script.js"></script>
+
+<!-- ✅ 스크립트 : 컴포넌트 -->
+<script src="/js/component/ui-script.js"></script>
