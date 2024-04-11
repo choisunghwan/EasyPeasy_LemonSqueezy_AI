@@ -22,7 +22,12 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'			// database
+	implementation 'mysql:mysql-connector-java:8.0.27' // MySQL 버전에 맞게 변경
+
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+//	runtimeOnly 'com.mysql:mysql-connector-j' // mysql 의존성 관리
 
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'			// Thymeleaf Template
 

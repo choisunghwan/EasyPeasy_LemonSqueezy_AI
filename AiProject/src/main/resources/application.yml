@@ -1,13 +1,28 @@
 # application.yml
 
+server:
+  address: localhost
+  port: 8080
+
 spring:
   application:
     name: AiProject
 
   datasource:
-    url: jdbc:mysql://localhost:3306/ai_db
-    username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ai_db?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=true
+    username: root
+
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update # 애플리케이션 실행 시 자동으로 테이블을 생성하거나 업데이트할지 여부
+    properties:
+      hibernate:
+        show_sql: true
+
+
 
   web:
     resources:
