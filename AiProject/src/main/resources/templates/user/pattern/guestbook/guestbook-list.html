@@ -1,6 +1,6 @@
 <!-- 🔔 S: 메타 헤더 영역 -->
 <!doctype html>
-<html lang="ko">
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -55,62 +55,6 @@
         </div>
         <button type="button" class="btn btn-txt sm ico-sch1 ico-before">고급검색</button>
       </div>
-      <div class="sch-filter-box">
-        <div class="filter-form">
-          <div>
-            <label class="label" for="appl-sch-sel1">생애 주기</label>
-            <select id="appl-sch-sel1" class="form-select md">
-              <option value="">전체</option>
-              <option value="">항목</option>
-              <option value="">항목</option>
-            </select>
-          </div>
-          <div>
-            <label class="label" for="appl-sch-sel2">가구 상황</label>
-            <select id="appl-sch-sel2" class="form-select md">
-              <option value="">전체</option>
-              <option value="">항목</option>
-              <option value="">항목</option>
-            </select>
-          </div>
-          <div>
-            <label class="label" for="appl-sch-sel3">관심 주제</label>
-            <select id="appl-sch-sel3" class="form-select md">
-              <option value="">전체</option>
-              <option value="">항목</option>
-              <option value="">항목</option>
-            </select>
-          </div>
-        </div>
-        <dl class="filter-chip">
-          <dt>선택된 필터 (<span class="num">2</span>)</dt>
-          <dd>
-            <button type="button" class="btn btn-ico ico-refresh sm-l">
-              <span class="sr-only">새로고침</span>
-            </button>
-            <div class="chip-wrap">
-									<span class="btn-chip-outline md">
-										영유아
-										<button type="button" class="btn-del">
-											<span class="sr-only">삭제</span>
-										</button>
-									</span>
-              <span class="btn-chip-outline md">
-										필터값
-										<button type="button" class="btn-del">
-											<span class="sr-only">삭제</span>
-										</button>
-									</span>
-              <span class="btn-chip-outline md">
-										필터값
-										<button type="button" class="btn-del">
-											<span class="sr-only">삭제</span>
-										</button>
-									</span>
-            </div>
-          </dd>
-        </dl>
-      </div>
     </div>
     <!-- //검색 입력폼 -->
 
@@ -155,346 +99,47 @@
 
 
     <!-- 검색 결과 : 리스트 -->
-    <ul class="search-list">
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge">신청중</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+    <ul class="search-list type1">
+      <li th:each="entry : ${guestbookEntries}" class="li">
+        <div class="in">
+          <div class="card-top">
+            <span class="krds-badge">방명록</span> <!-- 방명록 뱃지 -->
+            <div class="btn-area">
+              <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
+              <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+            </div>
           </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">산모·신생아 건강관리 지원사업</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.다문화가정의 자녀가 건강한 사회구성원, 글로벌
-              인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
+          <div class="card-body">
+            <a th:href="@{'/guestbook_detail/' + ${entry.id}}" class="c-text"> <!-- 게시물 상세 페이지 링크 -->
+              <p class="c-tit"><span class="span" th:text="${entry.title}">제목 부분</span></p> <!-- 제목 -->
+              <p class="c-txt" th:text="${entry.content}">내용부분</p> <!-- 내용 -->
+              <p class="c-date">
+                <strong class="key">등록 일</strong>
+                <span class="value" th:text="${entry.createdAt}">2024.04.11</span> <!-- 등록 일 -->
+              </p>
+            </a>
+            <div class="c-btn">
+              <a href="#" class="btn md primary">조회</a>
+            </div>
           </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge">신청중</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+          <div class="card-btm">
+            <span class="tag" th:each="tag : ${entry.tags}" th:text="${tag}">방명록</span> <!-- 태그 -->
           </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">저소득층 기저귀·조제분유 지원</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge bg3">방문 신청</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">여성장애인출산비용지원</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge">신청중</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">기초연금기초연금</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge bg2">신청예정</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">차상위계층확인사업</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary" disabled="">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge bg2">신청마감</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">부모급여 지원</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary" disabled="">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge">신청중</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">가정양육수당 지원</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge">신청중</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">아동발달지원계좌(디딤씨앗통장)지원</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge">신청중</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">보호종료아동 자립수당 지급</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge">신청중</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">의료급여본인부담면제</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge">신청중</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">아동발달지원계좌(디딤씨앗통장)지원</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
-        </div>
-      </li>
-      <li class="li">
-        <div class="card-top">
-          <span class="krds-badge">신청중</span>
-          <div class="btn-area">
-            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
-            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <a href="#" class="c-text">
-            <p class="c-tit"><span class="span">보호종료아동 자립수당 지급</span></p>
-            <p class="c-txt">
-              다문화가정의 자녀가 건강한 사회구성원, 글로벌 인재로 성장할 수 있도록 체계적인 언어발달을 돕습니다.
-            </p>
-            <p class="c-date">
-              <strong class="key">신청 기간</strong>
-              <span class="value">2023.11.01-2024.04.30</span>
-            </p>
-          </a>
-          <div class="c-btn">
-            <a href="#" class="btn md primary">신청하기</a>
-          </div>
-        </div>
-        <div class="card-btm">
-          <span class="tag">청소년</span>
-          <span class="tag">영유아</span>
         </div>
       </li>
     </ul>
     <!-- //검색 결과 : 리스트 -->
+
+
+
+    <!-- S: 페이지 버튼 영역-->
+    <div class="page-btn-wrap both">
+      <div class="btn-wrap">
+        <a href="/guestbook_create_page"><button type="button" class="btn xlg">글쓰기</button></a>
+      </div>
+    </div>
+    <!-- E: 페이지 버튼 영역-->
+
 
     <!-- paging : 웹 -->
     <div class="pagination w-page">
