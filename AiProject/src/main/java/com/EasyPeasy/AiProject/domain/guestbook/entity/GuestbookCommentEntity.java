@@ -31,14 +31,6 @@ public class GuestbookCommentEntity {
     private GuestbookEntity guestbook;
 
 
-    @ElementCollection
-    @CollectionTable(name = "guestbook_comment_options")
-    private Set<String> selectedCheckboxes;
-
-    @Column(nullable = false)
-    private String satisfaction; // 만족 여부 (라디오 버튼)
-
-
     public GuestbookCommentEntity() {
         this.createdAt = new Date(); // 생성일자를 현재 시간으로 초기화 합니다.
     }
