@@ -1,9 +1,9 @@
 package com.EasyPeasy.AiProject.domain.guestbook.Controller;
 
+import com.EasyPeasy.AiProject.domain.guestbook.dto.GuestbookCommentDTO;
 import com.EasyPeasy.AiProject.domain.guestbook.dto.GuestbookDTO;
 import com.EasyPeasy.AiProject.domain.guestbook.entity.GuestbookEntity;
 import com.EasyPeasy.AiProject.domain.guestbook.service.GuestbookService;
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -78,9 +78,9 @@ public class GuestbookController {
 
     /* S: 방명록 수정 페이지 조회*/
     @GetMapping("/guestbook_edit/{id}")
-    public String showGuestbookEditpage(@PathVariable("id")Long id, Model model) {
+    public String showGuestbookEditpage(@PathVariable("id") Long id, Model model) {
         GuestbookEntity entry = guestbookService.getGuestbookById(id);
-        model.addAttribute("entry",entry);
+        model.addAttribute("entry", entry);
         return "user/pattern/guestbook/guestbook-edit";
     }
     /* E: 방명록 수정 페이지 조회*/
@@ -98,5 +98,26 @@ public class GuestbookController {
     }
     /* E: 방명록 수정*/
 
+
+    /* S: 특정 게시물에 댓글 등록 */
+    @PostMapping("/comment/create/{guestbookId}")
+    public ResponseEntity<String> createComment(@PathVariable Long guestbookId, @RequestBody GuestbookCommentDTO guestbookCommentDTO) {
+        guestbookCommentDTO.setGuestbookId(guestbookId); // DTO에 게시물 ID 설정
+        boolean success = guestbookService.createComment(guestbookCommentDTO);
+        if (success) {
+            return ResponseEntity.ok("댓글이 성공적으로 등록되었습니다.");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("댓글 등록에 실패했습니다.");
+        }
+    }
+    /* E: 특정 게시물에 댓글 등록 */
+
+    /* S: 댓글 목록 조회 */
+    @GetMapping("/comment/list")
+    public ResponseEntity<List<GuestbookCommentDTO>> getAllComments() {
+        List<GuestbookCommentDTO> comments = guestbookService.getAllComments();
+        return ResponseEntity.ok(comments);
+    }
+    /* E: 댓글 목록 조회 */
 
 }

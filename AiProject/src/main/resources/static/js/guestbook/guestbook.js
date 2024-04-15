@@ -1,3 +1,11 @@
+$(document).ready(function () {
+    /* 페이지 로드 시 댓글 데이터 가져오기*/
+    fetchComments();
+
+});
+
+
+
 /* S: 방명록 등록 함수*/
 function registerGuestbook() {
 
@@ -86,3 +94,83 @@ function updateGuestbook() {
     }
 }
 /* E: 게시물 수정 함수*/
+
+/* S: 댓글 등록 */
+function submitGuestbookComment() {
+    // 댓글 내용과 게시물 ID 가져오기
+    var commentContent = $("#textareaid").val();
+    var guestbookId = $("#guestbookId").val(); // 게시물 ID 가져오기
+    var satisfaction = $("input[name='rdo_chip_size2']:checked").val();
+    // 선택된 체크박스 값 가져오기
+    var selectedCheckboxes = [];
+    $("input[name='chk1_1']:checked").each(function() {
+        selectedCheckboxes.push($(this).val());
+    });
+
+    // 댓글 데이터
+    var commentData = {
+        content: commentContent,
+        guestbookId: guestbookId, // 게시물 ID를 commentData에 추가
+        satisfaction: satisfaction, // 만족 여부 추가
+        selectedCheckboxes: selectedCheckboxes // 선택된 체크박스 값 추가
+    };
+
+    // Ajax 요청으로 댓글 데이터를 백엔드 컨트롤러로 전송
+    $.ajax({
+        type: "POST",
+        url: "/comment/create/" + guestbookId, // 백엔드 컨트롤러의 URL에 게시물 ID 추가
+        contentType: "application/json",
+        data: JSON.stringify(commentData),
+        success: function (response) {
+            // 성공적으로 댓글이 등록된 경우
+            alert("댓글이 성공적으로 등록되었습니다.");
+            // 성공 후 수행할 작업 추가
+        },
+        error: function (xhr, status, error) {
+            // 댓글 등록에 실패한 경우
+            alert("댓글 등록에 실패했습니다. 다시 시도해주세요.");
+            console.error(xhr.responseText);
+        }
+    });
+}
+/* E: 댓글 등록 */
+
+
+
+/* S: 댓글 데이터를 가져와서 화면에 표시하는 함수 */
+function fetchComments() {
+    // Ajax 요청으로 댓글 데이터를 백엔드에서 가져옵니다.
+    $.ajax({
+        type: "GET",
+        url: "/comments", // 댓글 데이터를 가져올 엔드포인트 URL
+        success: function(response) {
+            // 성공적으로 데이터를 가져온 경우
+            displayComments(response); // 가져온 데이터를 화면에 표시합니다.
+        },
+        error: function(xhr, status, error) {
+            // 데이터를 가져오는 데 실패한 경우
+            console.error(xhr.responseText);
+        }
+    });
+}
+/* E: 댓글 데이터를 가져와서 화면에 표시하는 함수 */
+
+
+/* S: 댓글 데이터를 화면에 표시하는 함수*/
+function displayComments(comments) {
+    var commentList = $("#comment-list"); // 댓글을 표시할 요소
+    commentList.empty(); // 기존에 표시되던 댓글을 모두 지웁니다.
+
+    // 각 댓글을 순회하면서 화면에 추가합니다.
+    comments.forEach(function(comment) {
+        // 댓글을 표시할 HTML 코드를 생성합니다.
+        var commentHTML = '<div class="comment">';
+        commentHTML += '<p class="comment-content">' + comment.content + '</p>';
+        commentHTML += '<p class="comment-date">' + comment.createdAt + '</p>';
+        commentHTML += '</div>';
+
+        // 생성된 HTML 코드를 댓글 리스트에 추가합니다.
+        commentList.append(commentHTML);
+    });
+}
+/* E: 댓글 데이터를 화면에 표시하는 함수*/

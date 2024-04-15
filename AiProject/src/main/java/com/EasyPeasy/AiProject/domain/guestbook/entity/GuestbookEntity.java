@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Set;
 
 @Data
@@ -29,5 +30,6 @@ public class GuestbookEntity {
     private String applicationPeriod; // 게시물의 신청 기간입니다.
     @ElementCollection
     private Set<String> tags; // 게시물의 태그를 나타내는 컬렉션입니다.
+
 
 }
