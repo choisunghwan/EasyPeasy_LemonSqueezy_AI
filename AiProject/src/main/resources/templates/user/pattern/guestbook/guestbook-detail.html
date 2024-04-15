@@ -55,6 +55,73 @@
             </div>
         </div>
 
+        <!-- 댓글 -->
+        <div class="txt-box bg-gray">
+
+            <!-- 댓글 표시 영역 -->
+            <div id="comment-list">
+                <!-- 여기에 댓글이 동적으로 추가됩니다. -->
+            </div>
+
+            <div class="assess-question-wrap">
+                <div class="assess-qu">이 페이지에 만족하시나요?</div>
+                <div class="assess-an">
+                    <div class="form-chip">
+                        <input type="radio" class="radio" name="rdo_chip_size2" id="rdo_chip_lg2-1" checked>
+                        <label class="form-chip-outline" for="rdo_chip_lg2-1">네</label>
+                    </div>
+                    <div class="form-chip">
+                        <input type="radio" class="radio" name="rdo_chip_size2" id="rdo_chip_lg2-2">
+                        <label class="form-chip-outline" for="rdo_chip_lg2-2">아니오</label>
+                    </div>
+                </div>
+            </div>
+            <div class="assess-opinion-wrap">
+                <p class="assess-opinion-tit">감사합니다! 이 페이지의 개선을 위해 추가적으로 의견을 남기시겠습니까?</p>
+                <ol class="assess-opinion-list">
+                    <li class="li">
+                        <p class="form-qu">이 페이지의 어떤 점에 만족하셨나요? (선택 입력)</p>
+                        <div class="form-group">
+                            <div class="form-conts">
+                                <div class="chk-area chk-column">
+                                    <div class="form-check md">
+                                        <input type="checkbox" name="chk1_1" id="chk1_1">
+                                        <label for="chk1_1">필요한 정보를 찾음</label>
+                                    </div>
+                                    <div class="form-check md">
+                                        <input type="checkbox" name="chk1_1" id="chk1_2">
+                                        <label for="chk1_2">내용이 마음에 듦</label>
+                                    </div>
+                                    <div class="form-check md">
+                                        <input type="checkbox" name="chk1_1" id="chk1_3">
+                                        <label for="chk1_3">내용을 이해하기 쉬움</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="li">
+                        <p class="form-qu">기타 제안 사항이 있다면 작성해주세요. (선택 입력)</p>
+                        <div class="form-group full">
+                            <div class="form-conts">
+                                <div class="textarea-wrap">
+                                    <textarea name="" id="textareaid" class="form-control" placeholder="내용을 입력해주세요."></textarea>
+                                    <p class="textarea-count">
+                                        <span class="text-primary">22</span><span class="text-num">/100</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <div class="btm-btn-wrap">
+                    <button type="button" class="btn secondary md">취소</button>
+                    <button type="button" class="btn primary md" onclick="submitGuestbookComment()">댓글 등록</button>
+                </div>
+            </div>
+        </div>
+        <!-- //댓글 -->
+
         <!-- S: 페이지 버튼 영역-->
         <div class="page-btn-wrap both">
             <a href="/guestbook_list">
