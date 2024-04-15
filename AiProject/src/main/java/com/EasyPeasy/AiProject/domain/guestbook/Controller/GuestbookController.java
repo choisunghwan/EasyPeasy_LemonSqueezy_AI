@@ -113,9 +113,9 @@ public class GuestbookController {
     /* E: 특정 게시물에 댓글 등록 */
 
     /* S: 댓글 목록 조회 */
-    @GetMapping("/comment/list")
-    public ResponseEntity<List<GuestbookCommentDTO>> getAllComments() {
-        List<GuestbookCommentDTO> comments = guestbookService.getAllComments();
+    @GetMapping("/comments/{guestbookId}")
+    public ResponseEntity<List<GuestbookCommentDTO>> getAllComments(@PathVariable Long guestbookId) {
+        List<GuestbookCommentDTO> comments = guestbookService.getAllComments(guestbookId);
         return ResponseEntity.ok(comments);
     }
     /* E: 댓글 목록 조회 */

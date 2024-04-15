@@ -105,9 +105,8 @@ public class GuestbookService {
             GuestbookEntity guestbookEntity = new GuestbookEntity();
             guestbookEntity.setId(commentCreateDTO.getGuestbookId());
             commentEntity.setGuestbook(guestbookEntity);
-            commentEntity.setSatisfaction(commentCreateDTO.getSatisfaction());
-            // 선택된 체크박스 값 설정
-            commentEntity.setSelectedCheckboxes(commentCreateDTO.getSelectedCheckboxes());
+
+
             // 댓글 저장
             guestbookCommentRepository.save(commentEntity); // guestbookCommentRepository를 사용하여 저장
             return true;
@@ -123,8 +122,8 @@ public class GuestbookService {
 
 
     /* S: 댓글 목록 조회 */
-    public List<GuestbookCommentDTO> getAllComments() {
-        List<GuestbookCommentEntity> comments = guestbookCommentRepository.findAll();
+    public List<GuestbookCommentDTO> getAllComments(Long guestbookId) {
+        List<GuestbookCommentEntity> comments = guestbookCommentRepository.findByGuestbookId(guestbookId);
         return comments.stream()
                 .map(this::convertEntityToDTO)
                 .collect(Collectors.toList());
