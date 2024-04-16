@@ -22,8 +22,8 @@ public class service01AdmService {
     public void registerService(service01AdmDTO service01AdmDTO) {
         service01AdmEntity service01AdmEntity = new service01AdmEntity(); // 새로운 서비스 엔티티 생성
 
-        service01AdmEntity.setServiceTitle(service01AdmDTO.getService_title()); // 서비스 제목
-        service01AdmEntity.setGuideContent(service01AdmDTO.getGuide_content()); // 서비스 가이드 내용
+        service01AdmEntity.setServiceTitle(service01AdmDTO.getServiceTitle()); // 서비스 제목
+        service01AdmEntity.setGuideContent(service01AdmDTO.getGuideContent()); // 서비스 가이드 내용
         service01AdmEntity.setServiceTarget(service01AdmDTO.getServiceTarget());// 서비스 대상
         service01AdmEntity.setServiceType(service01AdmDTO.getServiceType());// 서비스 유형
         service01AdmEntity.setSelectionCriteria(service01AdmDTO.getSelectionCriteria());// 선정 기준

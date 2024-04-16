@@ -16,8 +16,8 @@ function registerService() {
         type: 'POST', // POST 요청을 보냅니다. 필요에 따라 변경할 수 있습니다.
         contentType: "application/json", // 요청 본문의 데이터 타입을 JSON으로 설정
         data:JSON.stringify( {
-            service_title: serviceTitle,
-            guide_content: guideContent,
+            serviceTitle: serviceTitle,
+            guideContent: guideContent,
             serviceTarget: serviceTarget,
             serviceType: serviceType,
             selectionCriteria: selectionCriteria,
