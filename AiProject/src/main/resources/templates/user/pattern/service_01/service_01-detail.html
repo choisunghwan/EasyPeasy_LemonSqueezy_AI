@@ -1,0 +1,527 @@
+<!-- 🔔 S: 메타 헤더 영역 -->
+<!doctype html>
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="format-detection" content="telephone=no" />
+  <!--    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/img/guide/favicon_180.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="512x512" href="../../resources/img/guide/favicon_512.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="192x192"  href="../../resources/img/guide/favicon_192.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/img/guide/favicon_32.png">-->
+  <title>방명록 목록</title>
+  <link href="/css/pattern_css.css" type="text/css" rel="stylesheet" />
+</head>
+<!-- 🔔 E: 메타 헤더 영역 -->
+
+
+
+<!-- ❤️ S: 헤더 영역 -->
+<section th:replace="~{layout/header :: header}"></section>
+<!-- ❤️ E: 헤더 영역 -->
+
+
+<!-- ✨ S: 서비스01 컨테이너 -->
+<div id="container">
+  <!-- breadcrumb -->
+  <div class="breadcrumb-wrap">
+    <ol class="breadcrumb">
+      <li class="home"><a href="/" class="txt">홈</a></li>
+      <li><a href="/service_01" class="txt"></a></li>
+    </ol>
+  </div>
+  <!-- breadcrumb -->
+
+
+  <!-- 컨텐츠 영역 -->
+  <div class="inner quick-nav-inner">
+    <!-- 페이지 타이틀 영역 -->
+    <div class="page-title-wrap">
+
+      <h2 class="h-tit" th:text="${serviceDetail.serviceTitle}" > 서비스 제목 </h2>
+      <p class="guide-txt" th:text="${serviceDetail.guideContent}" > 서비스 가이드 내용 부분</p>
+    </div>
+    <!-- //페이지 타이틀 영역 -->
+
+    <!-- 컨텐츠 영역 -->
+    <div class="conts-area quick-nav-type">
+      <div class="conts-detail-wrap">
+        <!-- quick link for mobile -->
+        <div class="quick-nav-area mobile mob-only">
+          <nav class="quick-list">
+            <ul>
+              <li><a href="#section_01" class="active">서비스 개요</a></li>
+              <li><a href="#section_02">서비스 상세</a></li>
+              <li><a href="#section_03">신청 방법 및 절차</a></li>
+              <li><a href="#section_04">제출 서류</a></li>
+              <li><a href="#section_05">함께 신청할 수 있는 서비스</a></li>
+              <li><a href="#section_06">부가정보</a></li>
+              <li><a href="#section_07">정보 변경 내역</a></li>
+            </ul>
+          </nav>
+        </div>
+        <!-- //quick link for mobile -->
+
+        <!-- real contents -->
+        <div class="conts-wrap scroll-check">
+          <div class="conts-wrap section-link" id="section_01">
+            <h3 class="sec-tit">서비스 개요</h3>
+            <!-- table list -->
+            <div class="tbl-wrap">
+              <dl class="tbl def-list">
+                <dt>서비스 대상</dt>
+                <dd th:text="${serviceDetail.serviceTarget}">18세~20세 미만 등록 장애인</dd>
+                <dt>서비스 유형</dt>
+                <dd th:text="${serviceDetail.serviceType}">현금 지급 (매 월)</dd>
+                <dt>선정 기준</dt>
+                <dd th:text="${serviceDetail.selectionCriteria}">장애 · 연령 · 소득</dd>
+                <dt>신청 방법</dt>
+                <dd>
+                  <ul>
+                    <li th:text="${serviceDetail.applicationMethod}">복지로 모바일 앱 온라인 신청</li>
+                    <li>오프라인 신청</li>
+                  </ul>
+                </dd>
+                <dt>문의처</dt>
+                <dd>국번 없이 129 (보건복지부 장애인자립기반과)</dd>
+              </dl>
+            </div>
+            <!-- //table list -->
+          </div>
+          <div class="conts-wrap section-link" id="section_02">
+            <h3 class="sec-tit">서비스 상세</h3>
+            <div class="conts-wrap">
+              <h4 class="sec-tit">제공 내용</h4>
+              <div class="conts-desc">장애아동수당은 현금 지급형 서비스로 한 달에 한 번, 현금으로 지급합니다. 지급 금액은 장애 유형이나 소득
+                수준에 따라 달라질 수 있습니다.</div>
+              <!-- table list -->
+              <div class="tbl-wrap">
+                <table class="tbl col data">
+                  <caption>서비스 상세 제공 내용 표로 대상인 구분, 중증 장애인, 경증 장애인으로 구성되어있으며 대상인 구분은 국민기초생활보장
+                    생계 또는 의료급여 수급자, 국민기초생활보장 주거 또는 교육급여 수급자 및 차상위계층, 보장시설수급자(생계, 의료)로 구성되어있음
+                  </caption>
+                  <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                  </colgroup>
+                  <thead>
+                  <tr>
+                    <th scope="col">
+                      대상인 구분
+                    </th>
+                    <th scope="col" class="ar">
+                      중증 장애인
+                    </th>
+                    <th scope="col" class="ar">
+                      경증 장애인
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <th scope="row">국민기초생활보장 생계 또는 의료급여 수급자</th>
+                    <td class="ar">22 만원</td>
+                    <td class="ar">11 만원</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">국민기초생활보장 주거 또는 교육급여 수급자 및 차상위계층</th>
+                    <td class="ar">17 만원</td>
+                    <td class="ar">11 만원</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">보장시설수급자(생계, 의료)</th>
+                    <td class="ar">9 만원</td>
+                    <td class="ar">3 만원</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- //table list -->
+            </div>
+            <div class="conts-wrap">
+              <h4 class="sec-tit">지원 대상 선정 기준</h4>
+              <div class="conts-wrap">
+                <h5 class="sec-tit">장애</h5>
+                <ul class="info-list decimal">
+                  <li>[장애인복지법] 제32조에 따라 등록한 장애인(중증장애인, 경증장애인)을 대상으로 합니다.</li>
+                  <li>
+                    신청일을 기준으로 장애인 등록이 완료되어 있어야 합니다.
+                    <ul class="info-list dash">
+                      <li>중증장애인: 장애인연금법상 중증장애인에 해당</li>
+                      <li>
+                        경증장애인: 장애인연금법상 <strong>중증장애인에 해당하지 않음</strong>
+
+                        <!-- 참고 박스 -->
+                        <div class="helper-box refer">
+                          <p class="helper-tit">참고</p>
+                          <div class="helper-desc-wrap">
+                            <p>중증장애인은 장애인연금법상 중증장애인으로 장애유형별 의학적 판정기준에 부합하거나 장애 정도를
+                              2개 이상 받은 사람으로서 그 장애 정도 중 하나가 심한 경우를 의미합니다.</p>
+                          </div>
+                        </div>
+                        <!-- //참고 박스 -->
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="conts-wrap">
+                <h5 class="sec-tit">연령</h5>
+                <ul class="info-list decimal">
+                  <li>
+                    신청하는 달을 기준으로 18세 미만이어야 합니다. 신청일이 속하는 월의 말일까지 18세가 되는 경우 대상에서 제외됩니다. <br class="br">
+                    예) 9월 15일에 신청하고 신청인이 10월 1일 이전에 18세가 되는 경우 선정에서 제외함
+                  </li>
+                  <li>
+                    「초중등교육법」 제2조에 따른 학교에 재학/휴학 중인 경우 20세까지 지원 가능합니다. 이 때, 장애인연금을 받는 경우에는
+                    대상에서 제외됩니다.
+
+                    <!-- 참고 박스 -->
+                    <div class="helper-box refer">
+                      <p class="helper-tit">참고</p>
+                      <div class="helper-desc-wrap">
+                        <p>「초중등교육법」 제2조에 따른 학교에 특수학교의 전공과정도 포함됩니다. 자세한 내용은 법령을 참고하세요.
+                        </p>
+                      </div>
+                    </div>
+                    <!-- //참고 박스 -->
+                  </li>
+                </ul>
+              </div>
+              <div class="conts-wrap">
+                <h5 class="sec-tit">소득</h5>
+                <ul class="info-list decimal">
+                  <li>국민기초생활보장 수급자 또는 차상위계층에 해당해야 합니다.</li>
+                  <li>
+                    가구의 범위는 국민기초생활보장제도의 가구 범위와 동일하게 적용합니다. 가구 해체 방지를 위하여 별도의 가구 특례 적용이
+                    가능합니다.
+                    <ul class="info-list dash">
+                      <li>
+                        <strong>소득인정액 산정방식:</strong> 국민기초생활보장제도의 방식을 적용합니다.
+
+                        <!-- 참고 박스 -->
+                        <div class="helper-box refer">
+                          <p class="helper-tit">참고: 소득인정액 산정식</p>
+                          <div class="helper-desc-wrap">
+                            <div class="calc-wrap">
+                              <p class="total-txt">소득인정액 = 소득평가액(❶) + 재산의 소득환산액(❷)
+                              </p>
+                              <ol class="calc-list">
+                                <li>❶ 소득평가액 = 실제소득 - 가구특성별 지출 - 근로소득공제</li>
+                                <li>❷ 재산의 소득환산액 = {(일반/금융재산의 종류별가액-기본재산액-부채)+승용차
+                                  재산가액} × 재산의 종류별 소득환산액</li>
+                              </ol>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- //참고 박스 -->
+                      </li>
+                      <li><strong>차상위계층 선정 기준:</strong> 차상위 계층 선정 기준은 소득인정액이 기준 중위소득 50%
+                        이하인 경우로, 4인 가구 기준 2,700,482원 이하입니다. 부양의무자의 기준은 적용하지 않습니다.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="conts-wrap section-link" id="section_03">
+            <h3 class="sec-tit">신청 방법 및 절차</h3>
+            <div class="conts-wrap">
+              <h4 class="sec-tit">신청 방법</h4>
+              <ul class="info-list decimal">
+                <li>방문 신청(읍면동 주민센터)</li>
+                <li>온라인 신청(복지로 PC/모바일웹, 모바일앱)</li>
+              </ul>
+            </div>
+            <div class="conts-wrap">
+              <h4 class="sec-tit">신청 및 처리 절차</h4>
+              <!-- 영역 확장/축소 -->
+              <div class="conts-expand-area step">
+                <div class="expand-wrap">
+                  <ol class="service-step">
+                    <li>
+                      <span class="num">1</span>
+                      <div class="tit-area">
+                        <p class="tit">초기 상담 및 서비스 신청</p>
+                        <span class="period">1-5일 소요</span>
+                      </div>
+                      <p class="conts-desc">읍면동에서 서비스 신청을 접수합니다.</p>
+                    </li>
+                    <li>
+                      <span class="num">2</span>
+                      <div class="tit-area">
+                        <p class="tit">대상자 통합조사 및 심사</p>
+                        <span class="period">5-30일 소요</span>
+                      </div>
+                      <p class="conts-desc">시군구에서 서비스에 대한 조사 및 심사를 진행합니다.</p>
+                    </li>
+                    <li>
+                      <span class="num">3</span>
+                      <div class="tit-area">
+                        <p class="tit">대상자 확정</p>
+                        <span class="period">5일 소요</span>
+                      </div>
+                      <p class="conts-desc">시군구에서 서비스 지급을 위한 대상자를 선정합니다.</p>
+                    </li>
+                    <li>
+                      <span class="num">4</span>
+                      <div class="tit-area">
+                        <p class="tit">대상자 확정</p>
+                        <span class="period">5일 소요</span>
+                      </div>
+                      <p class="conts-desc">시군구에서 서비스 지급을 위한 대상자를 선정합니다.</p>
+                    </li>
+                    <li>
+                      <span class="num">5</span>
+                      <div class="tit-area">
+                        <p class="tit">대상자 확정</p>
+                        <span class="period">5일 소요</span>
+                      </div>
+                      <p class="conts-desc">시군구에서 서비스 지급을 위한 대상자를 선정합니다.</p>
+                    </li>
+                  </ol>
+                </div>
+                <button type="button" class="btn-conts-expand">신청 및 처리 절차 전체 보기</button>
+              </div>
+              <!-- //영역 확장/축소 -->
+            </div>
+          </div>
+          <div class="conts-wrap section-link" id="section_04">
+            <h3 class="sec-tit">함께 신청할 수 있는 서비스</h3>
+            <p class="conts-desc">
+              장애아동수당과 함께 신청할 수 있는 서비스입니다. <br class="br">
+              목록에서 원하는 서비스를 선택하여 한 번에 신청하시면 공통으로 입력해야 할 정보를 한 번만 입력하기 때문에 보다 편리하게 이용할 수 있습니다.
+            </p>
+
+
+
+            <fieldset>
+              <legend>함께 신청할 수 있는 서비스 선택</legend>
+              <div class="fieldset chk-group-area">
+                <div class="chk-all-wrap">
+                  <div class="form-group chk-area">
+                    <div class="form-check">
+                      <input type="checkbox" name="save_id" id="chk_all">
+                      <label for="chk_all">전체선택</label>
+                    </div>
+                  </div>
+                  <span class="chk-num">기존 서비스 외 <strong>1건</strong> 함께 신청하기</span>
+                </div>
+                <ul class="chk-group-wrap">
+
+                  <li>
+                    <div class="form-group chk-area chk-column">
+                      <div class="form-check">
+                        <input type="checkbox" name="save_id" id="chk_01" value="첫번째 서비스 ">
+                        <label for="chk_01">
+                          <p class="tit">장애아동수당</p>
+                          <p class="conts-desc">장애로 인하여 생활이 어려운 장애아동이 보다 편안한 생활을 할 수
+                            있도록 지원합니다.</p>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="btn-wrap">
+                      <a href="#" class="btn sm btn-txt ico-arr">자세히보기</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="form-group chk-area chk-column">
+                      <div class="form-check">
+                        <input type="checkbox" name="save_id" id="chk_02" value="두번째 서비스">
+                        <label for="chk_02">
+                          <p class="tit">청소년 발달장애인 방과후활동서비스</p>
+                          <p class="conts-desc">만 6세 이상~만 18세 미만의 청소년이 방과후에도 돌봄을 지원받을
+                            수 있도록 방과후활동 이용권을 지급합니다.</p>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="btn-wrap">
+                      <a href="#" class="btn sm btn-txt ico-arr">자세히보기</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="form-group chk-area chk-column">
+                      <div class="form-check">
+                        <input type="checkbox" name="save_id" id="chk_03" value="세번째 서비스">
+                        <label for="chk_03">
+                          <p class="tit">아동발달지원계좌(디딤씨앗통장)지원</p>
+                          <p class="conts-desc">취약계층 아동의 사회진출 시 학자금･취업･창업･주거마련 등에 소요되는
+                            초기비용 마련을 위한 자산형성을 지원합니다.</p>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="btn-wrap">
+                      <a href="#" class="btn sm btn-txt ico-arr">자세히보기</a>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </fieldset>
+
+
+          </div>
+
+          <div class="conts-wrap section-link" id="section_05">
+            <h3 class="sec-tit">정보 변경 내역</h3>
+            <!-- table list -->
+            <div class="tbl-wrap">
+              <table class="tbl col data">
+                <caption>정보 변경 내역 표로 변경일자, 변경 내용으로 구성되어있음</caption>
+                <colgroup>
+                  <col style="width: 30%;">
+                  <col>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th scope="col">변경일자</th>
+                  <th scope="col">변경 내용</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>2023년 12월 4일</td>
+                  <td>2024년 기준 소득 금액 반영</td>
+                </tr>
+                <tr>
+                  <td>2021년 11월 12일</td>
+                  <td>최초 등록</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- //table list -->
+          </div>
+
+
+          <div class="conts-wrap section-link" id="section_06">
+
+          <div class="txt-box bg-white">
+            <h4 class="box-tit1">신청 정보</h4>
+            <div class="box-cnt">
+
+              <!-- 신청 날짜 -->
+              <div class="box-sec">
+
+                <h5 class="box-tit2">예약 일자
+                  <button class="btn btn-ico ico-help sm-m btn-help-exec">
+                    <span class="sr-only">도움말</span>
+                  </button>
+                </h5>
+
+                <div class="form-group">
+                  <input type="date" id="reservationDate"></input>
+                </div>
+
+
+              </div>
+              <!-- //신청 권차 -->
+
+              <!-- 딸림자료 -->
+              <div class=" box-sec">
+                <h5 class="box-tit2">딸림자료</h5>
+                <div class="form-group">
+                  <div class="form-conts">
+                    <div class="row chk-area chk-column">
+
+                      <div class="form-check lg">
+                        <input type="radio" name="rdo_1" id="rdo_1" value="신청" >
+                        <label for="rdo_1">신청</label>
+                      </div>
+
+                      <div class="form-check lg">
+                        <input type="radio" name="rdo_1" id="rdo_2" value="미신청">
+                        <label for="rdo_2">미신청</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //딸림자료 -->
+
+              <!-- 신청 남길 말 -->
+              <div class="box-sec">
+                <h5 class="box-tit2">기타 남길 말</h5>
+                <div class="form-group full">
+                  <div class="form-conts">
+                    <div class="textarea-wrap">
+                      <textarea id="additionalMessage" class="form-control" placeholder="남길 말이 있으시면 입력해주세요."></textarea>
+                      <p class="textarea-count">
+                        <span class="text-primary">22</span><span class="text-num">/100</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //신청 남길 말 -->
+            </div>
+          </div>
+          </div>
+
+
+
+
+        </div>
+        <!-- //real contents -->
+      </div>
+      <!-- quick link for pc -->
+      <div class="quick-nav-area pc-only">
+        <div class="quick-title-wrap">
+          <p class="guide-txt">이 페이지의 구성</p>
+          <h3 class="sec-tit">장애아동수당</h3>
+        </div>
+        <nav class="quick-list">
+          <ul>
+            <li><a href="#section_01" class="active">서비스 개요</a></li>
+            <li><a href="#section_02" class="">서비스 상세</a></li>
+            <li><a href="#section_03" class="">신청 방법 및 절차</a></li>
+            <li><a href="#section_04" class="">제출 서류</a></li>
+            <li><a href="#section_05" class="">함께 신청할 수 있는 서비스</a></li>
+            <li><a href="#section_06" class="">부가정보</a></li>
+            <li><a href="#section_07">정보 변경 내역</a></li>
+          </ul>
+        </nav>
+        <div class="btn-wrap">
+          <button type="button" class="btn primary" onclick="submitReservation()">온라인 신청하기</button>
+          <p class="guide-txt">건수 <strong>1건</strong></p>
+        </div>
+      </div>
+      <!-- //quick link for pc -->
+    </div>
+    <!-- //컨텐츠 영역 -->
+    <!-- 페이지 버튼 영역 -->
+    <div class="page-btn-wrap guide mob-only">
+      <button type="button" class="btn primary" onclick="submitReservation()">온라인 신청하기</button>
+      <p class="guide-txt"> 건수 <strong>1건</strong></p>
+    </div>
+    <!-- //페이지 버튼 영역 -->
+  </div>
+  <!-- //컨텐츠 영역 -->
+</div>
+
+
+<!-- ✨ E: 컨테이너 영역 -->
+
+<!-- ❤️ S: 푸터 영역 -->
+<section th:replace="~{layout/footer :: footer}"></section>
+<!-- ❤️ E: 푸터 영역 -->
+
+<!-- ✅ 스크립트 : 라이브러리 -->
+<script src="/js/pattern/jquery.min.js"></script>
+<script src="/js/pattern/swiper-bundle.min.js"></script>
+
+<!-- ✅ 스크립트 : 패턴 페이지 -->
+
+<script src="/js/pattern/ui-pattern-script.js"></script>
+
+<!-- ✅ 스크립트 : 컴포넌트 -->
+<script src="/js/component/ui-script.js"></script>
+
+<script src="/js/service_01/service_01_reservation.js"></script>
