@@ -41,8 +41,8 @@
     <div class="inner quick-nav-inner">
         <!-- 페이지 타이틀 영역 -->
         <div class="page-title-wrap">
-            <h2 class="h-tit"> 서비스 제목: <input></input>  </h2>             <!-- th:text="${entry.title}"-->
-            <p class="guide-txt" > 서비스 가이드 내용 부분</p>   <!-- th:text="${entry.content}" -->
+            <h2 class="h-tit"><input type="text" id="service_title"  placeholder="서비스 제목을 입력하세요"></input>  </h2>        <!-- th:text="${entry.title}"-->
+            <p class="guide-txt" ><input type="text" id="guide_content"  placeholder="서비스 가이드 내용 부분"></input></p>       <!-- th:text="${entry.content}" -->
         </div>
         <!-- //페이지 타이틀 영역 -->
 
@@ -53,7 +53,7 @@
                 <div class="quick-nav-area mobile mob-only">
                     <nav class="quick-list">
                         <ul>
-                            <li><a href="#section_01" class="active">서비스 개요</a></li>
+                            <li><a href="#section_01" class="active"><input type="text" placeholder="서비스 개요"></input></a></li>
                             <li><a href="#section_02">서비스 상세</a></li>
                             <li><a href="#section_03">신청 방법 및 절차</a></li>
                             <li><a href="#section_04">제출 서류</a></li>
@@ -73,21 +73,20 @@
                         <div class="tbl-wrap">
                             <dl class="tbl def-list">
                                 <dt>서비스 대상</dt>
-                                <dd>18세~20세 미만 등록 장애인</dd>
+                                <dd><input type="text" id = "serviceTarget" placeholder="예시: 18세~20세 미만"></dd>
                                 <dt>서비스 유형</dt>
-                                <dd>현금 지급 (매 월)</dd>
+                                <dd><input type="text" id="serviceType" placeholder="현금 지급 (매 월)"></dd>
                                 <dt>선정 기준</dt>
-                                <dd>장애 · 연령 · 소득</dd>
+                                <dd><input type="text" id="selectionCriteria" placeholder="장애 · 연령 · 소득"></dd>
                                 <dt>신청 방법</dt>
                                 <dd>
                                     <ul>
-                                        <li>복지로 모바일 앱 온라인 신청</li>
-                                        <li>복지로 모바일 앱 온라인 신청</li>
+                                        <li><input type="text" id="applicationMethod" placeholder="온라인 신청"></li>
                                         <li>오프라인 신청</li>
                                     </ul>
                                 </dd>
                                 <dt>문의처</dt>
-                                <dd>국번 없이 129 (보건복지부 장애인자립기반과)</dd>
+                                <dd>국번 없이 000 (EeasyPeasy LS)</dd>
                             </dl>
                         </div>
                         <!-- //table list -->
@@ -96,8 +95,8 @@
                         <h3 class="sec-tit">서비스 상세</h3>
                         <div class="conts-wrap">
                             <h4 class="sec-tit">제공 내용</h4>
-                            <div class="conts-desc">장애아동수당은 현금 지급형 서비스로 한 달에 한 번, 현금으로 지급합니다. 지급 금액은 장애 유형이나 소득
-                                수준에 따라 달라질 수 있습니다.</div>
+                            <div class="conts-desc"><input type="text" placeholder="장애아동수당은 현금 지급형 서비스로 한 달에 한 번, 현금으로 지급합니다. 지급 금액은 장애 유형이나 소득
+                                수준에 따라 달라질 수 있습니다."></div>
                             <!-- table list -->
                             <div class="tbl-wrap">
                                 <table class="tbl col data">
@@ -115,28 +114,28 @@
                                             대상인 구분
                                         </th>
                                         <th scope="col" class="ar">
-                                            중증 장애인
+                                            <input type="text" placeholder="멤버쉽 회원">
                                         </th>
                                         <th scope="col" class="ar">
-                                            경증 장애인
+                                            <input type="text" placeholder="일반 회원">
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <th scope="row">국민기초생활보장 생계 또는 의료급여 수급자</th>
-                                        <td class="ar">22 만원</td>
-                                        <td class="ar">11 만원</td>
+                                        <th scope="row"><input type="text" placeholder="1개월 신청자"></th>
+                                        <td class="ar"><input type="text" placeholder=" * ">만원</td>
+                                        <td class="ar"><input type="text" placeholder=" * ">만원</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">국민기초생활보장 주거 또는 교육급여 수급자 및 차상위계층</th>
-                                        <td class="ar">17 만원</td>
-                                        <td class="ar">11 만원</td>
+                                        <th scope="row"><input type="text" placeholder="2개월 신청자"></th>
+                                        <td class="ar"><input type="text" placeholder=" * ">만원</td>
+                                        <td class="ar"><input type="text" placeholder=" * ">만원</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">보장시설수급자(생계, 의료)</th>
-                                        <td class="ar">9 만원</td>
-                                        <td class="ar">3 만원</td>
+                                        <th scope="row"><input type="text" placeholder="3개월 신청자"></th>
+                                        <td class="ar"><input type="text" placeholder=" * ">만원</td>
+                                        <td class="ar"><input type="text" placeholder=" * ">만원</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -492,8 +491,8 @@
                     </ul>
                 </nav>
                 <div class="btn-wrap">
-                    <button type="button" class="btn primary">장애아동수당 온라인 신청하기</button>
-                    <p class="guide-txt">장애아동수당 외 <strong>1건</strong></p>
+                    <button type="button" class="btn primary" onclick="registerService()">서비스 등록하기</button>
+                    <p class="guide-txt">서비스 등록 건수 <strong>1건</strong></p>
                 </div>
             </div>
             <!-- //quick link for pc -->
@@ -501,8 +500,8 @@
         <!-- //컨텐츠 영역 -->
         <!-- 페이지 버튼 영역 -->
         <div class="page-btn-wrap guide mob-only">
-            <button type="button" class="btn primary">장애아동수당 온라인 신청하기</button>
-            <p class="guide-txt">장애아동수당 외 <strong>1건</strong></p>
+            <button type="button" class="btn primary">서비스 등록하기</button>
+            <p class="guide-txt">서비스 등록 건수 <strong>1건</strong></p>
         </div>
         <!-- //페이지 버튼 영역 -->
     </div>
@@ -526,3 +525,5 @@
 
 <!-- ✅ 스크립트 : 컴포넌트 -->
 <script src="/js/component/ui-script.js"></script>
+
+<script src="/js/service_01/service_01.js"></script>
