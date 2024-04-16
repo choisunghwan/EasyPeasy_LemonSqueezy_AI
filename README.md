@@ -1,4 +1,6 @@
 ## 🖥 프로젝트 소개
+![image](https://github.com/choisunghwan/EasyPeasy_LemonSqueezy_AI/assets/33335762/25a2ca75-694a-467e-adcd-fd2476973195)
+
 - 프로젝트명 : EasyPeasy_LemonSqueezy 인공지능 통합 시스템
 - 설명 : 'EasyPeasy_LemonSqueezy' 이라는 의미에 맞게 아주 쉽게 접근 할 수 있도록 최신 AI 기술을 접목한 기술 공유 사이트_edu
 - 개발기간 <img src="https://img.shields.io/badge/24/03/04 ~ 24/00/00 (진행중) -ffce66?style=flat&logo=java&logoColor=white">
