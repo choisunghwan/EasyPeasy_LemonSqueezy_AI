@@ -4,6 +4,9 @@ import com.EasyPeasy.AiProject.domain.guestbook.dto.GuestbookCommentDTO;
 import com.EasyPeasy.AiProject.domain.guestbook.dto.GuestbookDTO;
 import com.EasyPeasy.AiProject.domain.guestbook.entity.GuestbookEntity;
 import com.EasyPeasy.AiProject.domain.guestbook.service.GuestbookService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -23,9 +26,11 @@ public class GuestbookController {
 
     /* S: 방명록 리스트*/
     @GetMapping("/guestbook_list")
-    public String showGuestBookList(Model model) {
-        List<GuestbookEntity> guestbookEntities = guestbookService.getAllGuestbookEntries();
-        model.addAttribute("guestbookEntries", guestbookEntities);
+    public String showGuestBookList(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<GuestbookEntity> guestbookPage = guestbookService.getAllGuestbookEntries(page, size);
+        model.addAttribute("guestbookEntries", guestbookPage.getContent());
+        model.addAttribute("pageable", guestbookPage);
         return "user/pattern/guestbook/guestbook-list";
     }
     /* E: 방명록 리스트*/

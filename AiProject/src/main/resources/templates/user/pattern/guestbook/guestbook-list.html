@@ -141,24 +141,36 @@
     <!-- E: 페이지 버튼 영역-->
 
 
-    <!-- paging : 웹 -->
-    <div class="pagination w-page">
+<!--     paging : 웹 -->
+<!--    <div class="pagination w-page">-->
+<!--      <a class="page-navi prev" href="#">이전</a>-->
+<!--      <div class="page-links">-->
+<!--        <a class="page-link" href="#">1</a>-->
+<!--        <span class="page-link link-dot"></span>-->
+<!--        <a class="page-link" href="#">6</a>-->
+<!--        <a class="page-link" href="#">7</a>-->
+<!--        <a class="page-link active" href="#">8</a>-->
+<!--        <a class="page-link" href="#">9</a>-->
+<!--        <a class="page-link" href="#">10</a>-->
+<!--        <a class="page-link" href="#">11</a>-->
+<!--        <span class="page-link link-dot"></span>-->
+<!--        <a class="page-link" href="#">120</a>-->
+<!--      </div>-->
+<!--      <a class="page-navi next" href="#">다음</a>-->
+<!--    </div>-->
+<!--     //paging : 웹 -->
+
+    <!-- 페이징 -->
+    <div class="pagination">
       <a class="page-navi prev" href="#">이전</a>
       <div class="page-links">
-        <a class="page-link" href="#">1</a>
-        <span class="page-link link-dot"></span>
-        <a class="page-link" href="#">6</a>
-        <a class="page-link" href="#">7</a>
-        <a class="page-link active" href="#">8</a>
-        <a class="page-link" href="#">9</a>
-        <a class="page-link" href="#">10</a>
-        <a class="page-link" href="#">11</a>
-        <span class="page-link link-dot"></span>
-        <a class="page-link" href="#">120</a>
+        <!-- 페이지 번호는 동적으로 생성됨 -->
+        <span th:each="pageNumber : ${#numbers.sequence(0, pageable.totalPages - 1)}">
+            <a class="page-link" th:href="@{'/guestbook_list?page=' + ${pageNumber}}" th:class="${pageNumber == pageable.number ? 'active' : ''}" th:text="${pageNumber + 1}"></a>
+        </span>
       </div>
       <a class="page-navi next" href="#">다음</a>
     </div>
-    <!-- //paging : 웹 -->
 
     <!-- paging : 모바일 -->
     <div class="pagination m-page">

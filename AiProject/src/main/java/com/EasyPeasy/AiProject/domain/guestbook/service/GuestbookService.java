@@ -8,6 +8,10 @@ import com.EasyPeasy.AiProject.domain.guestbook.repository.GuestbookCommentRepos
 import com.EasyPeasy.AiProject.domain.guestbook.repository.GuestbookRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -48,10 +52,18 @@ public class GuestbookService {
     /* E: 방명록 등록 */
 
     /* S: 방명록 목록 조회*/
-    public List<GuestbookEntity> getAllGuestbookEntries() {
-        return guestbookRepository.findAll(); // 현재는 GuestbookRepository에서 모든 방문록 항목을 가져오는 메서드를 호출하도록 가정합니다.
+//    public Page<GuestbookEntity> getAllGuestbookEntries(Pageable pageable) {
+//        return guestbookRepository.findAll(pageable); // 현재는 GuestbookRepository에서 모든 방문록 항목을 가져오는 메서드를 호출하도록 가정합니다.
+//    }
+    /* E: 방명록 목록 조회*/
+
+    /* S: 방명록 목록 조회*/
+    public Page<GuestbookEntity> getAllGuestbookEntries(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
+        return guestbookRepository.findAll(pageable);
     }
     /* E: 방명록 목록 조회*/
+
 
 
     /* S: 방명록 상세 조회*/

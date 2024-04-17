@@ -27,6 +27,7 @@ function registerService() {
             // 성공적으로 데이터를 등록한 경우에 수행할 작업을 여기에 추가합니다.
             alert("성공적으로 등록되었습니다.");
             console.log('데이터가 성공적으로 등록되었습니다.');
+
         },
         error: function(xhr, status, error) {
             // Ajax 요청이 실패한 경우에 대한 처리를 여기에 추가합니다.
