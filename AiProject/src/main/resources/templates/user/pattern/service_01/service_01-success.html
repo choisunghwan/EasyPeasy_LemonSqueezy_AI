@@ -1,0 +1,107 @@
+<!-- 🔔 S: 메타 헤더 영역 -->
+<!doctype html>
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="format-detection" content="telephone=no" />
+  <!--    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/img/guide/favicon_180.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="512x512" href="../../resources/img/guide/favicon_512.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="192x192"  href="../../resources/img/guide/favicon_192.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/img/guide/favicon_32.png">-->
+  <title>방명록 목록</title>
+  <link href="/css/pattern_css.css" type="text/css" rel="stylesheet" />
+</head>
+<!-- 🔔 E: 메타 헤더 영역 -->
+
+
+
+<!-- ❤️ S: 헤더 영역 -->
+<section th:replace="~{layout/header :: header}"></section>
+<!-- ❤️ E: 헤더 영역 -->
+
+
+<!-- ✨ S: 서비스01 컨테이너 -->
+<div id="container">
+  <!-- breadcrumb -->
+  <div class="breadcrumb-wrap">
+    <ol class="breadcrumb">
+      <li class="home"><a href="/" class="txt">홈</a></li>
+      <li><a href="/service_01" class="txt"> </a></li>
+    </ol>
+  </div>
+  <!-- breadcrumb -->
+
+    <!-- 컨텐츠 영역 -->
+    <div class="inner">
+      <!-- 완료 메세지 -->
+      <div class="comp-msg-wrap">
+        ○○ 서비스<br>
+         신청이 <span class="point">완료</span>되었습니다.
+      </div>
+      <!-- //완료 메세지 -->
+
+      <!-- 신청 정보 -->
+      <ul class="comp-info-box">
+        <li>
+          <div class="key">신청인</div>
+          <div class="value">홍길동</div>
+        </li>
+        <li>
+          <div class="key">신청정보</div>
+          <div class="value">
+            <p class="p">과거 주소 변동 사항(전체 포함)</p>
+            <p class="p">세대 구성 정보(세대 구성 사유, 세대 구성 일자, 변동 사유)</p>
+            <p class="p">세대 구성원 정보</p>
+            <p class="p">주민등록번호 뒷자리</p>
+          </div>
+        </li>
+      </ul>
+      <!-- //신청 정보 -->
+
+      <!-- 버튼 -->
+      <div class="comp-btn-wrap">
+        <a href="/service_01/"> <button type="button" class="btn xlg tertiary">다시 신청하기</button></a>
+        <button type="button" class="btn xlg">신청 내역/결과보기</button>
+      </div>
+      <!-- //버튼 -->
+
+      <!-- 기타 링크 -->
+      <dl class="comp-link-box">
+        <dt>
+          <p class="tit">이런 서비스는 어떠세요?</p>
+          <p class="txt">'○○ 서비스 '를 신청하는 분들이 함께 이용한 페이지입니다.</p>
+        </dt>
+        <dd>
+          <a href="#" class="btn sm btn-txt ico-arr">영문 주민등록표등본</a>
+          <a href="#" class="btn sm btn-txt ico-arr">주민등록표초본</a>
+          <a href="#" class="btn sm btn-txt ico-arr">지방세납세증명서</a>
+          <a href="#" class="btn sm btn-txt ico-arr">모든 민원 서비스 목록 보기</a>
+        </dd>
+      </dl>
+      <!-- //기타 링크 -->
+
+    </div>
+    <!-- //컨텐츠 영역 -->
+  </div>
+
+<!-- ✨ E: 컨테이너 영역 -->
+
+<!-- ❤️ S: 푸터 영역 -->
+<section th:replace="~{layout/footer :: footer}"></section>
+<!-- ❤️ E: 푸터 영역 -->
+
+<!-- ✅ 스크립트 : 라이브러리 -->
+<script src="/js/pattern/jquery.min.js"></script>
+<script src="/js/pattern/swiper-bundle.min.js"></script>
+
+<!-- ✅ 스크립트 : 패턴 페이지 -->
+
+<script src="/js/pattern/ui-pattern-script.js"></script>
+
+<!-- ✅ 스크립트 : 컴포넌트 -->
+<script src="/js/component/ui-script.js"></script>

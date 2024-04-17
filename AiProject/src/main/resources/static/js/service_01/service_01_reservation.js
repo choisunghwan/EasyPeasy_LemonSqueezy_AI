@@ -17,6 +17,7 @@ function submitReservation() {
         success: function(response) {
             // 서버로부터 응답을 받았을 때 실행할 코드
             alert("신청이 성공적으로 완료되었습니다.");
+            window.location.href = "/service_01/success";
             // 필요한 경우 추가 작업 수행
         },
         error: function(xhr, status, error) {

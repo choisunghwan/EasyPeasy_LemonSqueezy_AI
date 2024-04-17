@@ -33,12 +33,19 @@ public class service_01_Controller {
 
     /* S: 서비스 신청 */
     @PostMapping("/submit-reservation")
-    public ResponseEntity<String>reserve(@RequestBody service01ReservationDTO service01ReservationDTO) {
+    public ResponseEntity<String> reserve(@RequestBody service01ReservationDTO service01ReservationDTO) {
         service01Service.makeReservation(service01ReservationDTO);
         return ResponseEntity.ok("reservation successful");
     }
-
     /* E: 서비스 신청 */
 
+
+    /* S: 서비스 신청 완료 조회 */
+    @GetMapping("/service_01/success")
+    public String showService_01SuccessPage() {
+
+        return "user/pattern/service_01/service_01-success";
+    }
+    /* E: 서비스 신청 완료 조회 */
 
 }
