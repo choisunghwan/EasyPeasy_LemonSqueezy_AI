@@ -29,8 +29,8 @@ public class GuestbookController {
     public String showGuestBookList(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<GuestbookEntity> guestbookPage = guestbookService.getAllGuestbookEntries(page, size);
-        model.addAttribute("guestbookEntries", guestbookPage.getContent());
-        model.addAttribute("pageable", guestbookPage);
+        model.addAttribute("guestbookEntries", guestbookPage.getContent());  // 모델에 방명록 항목들을 추가합니다. getcontent() 메서드는 페이지의 내용을 가져옵니다.
+        model.addAttribute("pageable", guestbookPage);   // 모델에 페이지 정보를 추가합니다.
         return "user/pattern/guestbook/guestbook-list";
     }
     /* E: 방명록 리스트*/

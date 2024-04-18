@@ -1,0 +1,126 @@
+<!-- 🔔 S: 메타 헤더 영역 -->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="format-detection" content="telephone=no" />
+  <!--    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/img/guide/favicon_180.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="512x512" href="../../resources/img/guide/favicon_512.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="192x192"  href="../../resources/img/guide/favicon_192.png">-->
+  <!--    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/img/guide/favicon_32.png">-->
+
+
+  <title>방명록_글쓰기</title>
+  <link href="/css/pattern_css.css" type="text/css" rel="stylesheet" />
+</head>
+<!-- 🔔 E: 메타 헤더 영역 -->
+
+<!-- ❤️ S: 헤더 영역 -->
+<section th:replace="~{layout/header :: header}"></section>
+<!-- ❤️ E: 헤더 영역 -->
+
+
+<!-- S: 컨테이너 영역-->
+<div id="container">
+
+  <!-- breadcrumb -->
+  <div class="breadcrumb-wrap">
+    <ol class="breadcrumb">
+      <li class="home"><a href="/" class="txt">홈</a></li>
+      <li><a href="/guestbook_list" class="txt">스프링 리스트</a></li>
+    </ol>
+  </div>
+  <!-- breadcrumb -->
+
+  <!-- S: 컨텐츠 1 영역-->
+  <div class="inner narrow page-step">
+    <!-- S: 페이지 타이틀 영역-->
+    <div class="page-title-wrap between">
+      <h2 class="h-tit">스프링 기술 작성</h2>
+    </div>
+    <!-- E: 페이지 타이틀 영역-->
+
+    <!--S: 컨텐츠 2 영역-->
+    <div class="conts-area step-type">
+      <div class="conts-wrap">
+        <!-- S: 상단 가이드 박스-->
+        <div class="txt-box outline">
+          <h4 class="outline-tit">시작하기 전에</h4>
+          <ul class="check-list info">
+            <li>
+              부적절한 단어 용어 사용시 경고 없이 삭제 될 수 있습니다.<br>
+              <p class="txt-refer">(예) 비속어, 욕설, 정치발언, 부적절한 내용 등</p>
+            </li>
+          </ul>
+        </div>
+        <!--E: 상단 가이드 박스-->
+        <div class="txt-box bg-white">
+          <!-- 폼그룹 -->
+          <div class="form-group full">
+            <h4 class="box-tit1">제목</h4>
+            <input id="title" class="form-control" placeholder="제목을 입력해 주세요."></input>
+            <h4 class="box-tit1">내용</h4>
+
+                <!-- Quill 에디터 요소 추가 -->
+                <div id="editor"> </div>
+          <!-- //폼그룹 -->
+        </div>
+      </div>
+    </div>
+    <!--E: 컨텐츠 2 영역-->
+
+    <!-- S: 페이지 버튼 영역-->
+    <div class="page-btn-wrap both">
+      <a href="/techbook_list">
+        <button type="button" class="btn xlg tertiary">이전으로</button>
+      </a>
+
+      <div class="btn-wrap">
+        <button type="button" class="btn xlg tertiary">임시저장</button>
+        <button type="button" class="btn xlg" onclick="registerTechbook()">등록</button>
+      </div>
+    </div>
+    <!-- E: 페이지 버튼 영역-->
+
+  </div>
+  <!-- E: 컨텐츠 1 영역-->
+
+</div>
+<!-- E: 컨테이너 영역-->
+
+
+<!-- ❤️ S: 푸터 영역 -->
+<section th:replace="~{layout/footer :: footer}"></section>
+<!-- ❤️ E: 푸터 영역 -->
+
+
+
+
+
+
+
+<!-- ✅ 스크립트 : 라이브러리 -->
+<script src="/js/pattern/jquery.min.js"></script>
+<script src="/js/pattern/swiper-bundle.min.js"></script>
+
+<!-- Quill CDN 스크립트 추가 -->
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.js"></script>
+<!-- Quill 스타일 시트 추가 -->
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.0/dist/quill.snow.css" rel="stylesheet" />
+
+
+<!-- ✅ 스크립트 : 패턴 페이지 -->
+
+<script src="/js/pattern/ui-pattern-script.js"></script>
+
+<!-- ✅ 스크립트 : 컴포넌트 -->
+<script src="/js/component/ui-script.js"></script>
+
+<!-- ✅ 스크립트 : 해당 페이지(기술 게시판) -->
+<script src="/js/techbook/techbook.js"></script>
