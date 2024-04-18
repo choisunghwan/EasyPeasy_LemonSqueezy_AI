@@ -1,10 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- 🔔 S: 메타 헤더 영역 -->
+<!doctype html>
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--    <link rel="apple-touch-icon" sizes="180x180" href="../../resources/img/guide/favicon_180.png">-->
+    <!--    <link rel="icon" type="image/png" sizes="512x512" href="../../resources/img/guide/favicon_512.png">-->
+    <!--    <link rel="icon" type="image/png" sizes="192x192"  href="../../resources/img/guide/favicon_192.png">-->
+    <!--    <link rel="icon" type="image/png" sizes="32x32" href="../../resources/img/guide/favicon_32.png">-->
+    <title>스프링 정리</title>
+    <link href="/css/pattern_css.css" type="text/css" rel="stylesheet" />
 </head>
-<body>
+<!-- 🔔 E: 메타 헤더 영역 -->
 
-</body>
-</html>
+
+
+<!-- ❤️ S: 헤더 영역 -->
+<section th:replace="~{layout/header :: header}"></section>
+<!-- ❤️ E: 헤더 영역 -->
+
+
+<!-- ✨ S: 방문록 컨테이너 -->
+<div id="container">
+    <!-- breadcrumb -->
+    <div class="breadcrumb-wrap">
+        <ol class="breadcrumb">
+            <li class="home"><a href="/" class="txt">홈</a></li>
+            <li><a href="/techbook_list" class="txt">스프링 정리</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb -->
+
+    <!-- 컨텐츠 영역 -->
+    <div class="inner">
+        <!-- 페이지 타이틀 영역 -->
+        <div class="page-title-wrap">
+            <h2 class="h-tit">스프링 정리</h2>
+        </div>
+        <!-- //페이지 타이틀 영역 -->
+
+        <!-- 검색 입력폼 -->
+        <div class="search-top-box">
+            <div class="sch-form-wrap">
+                <div class="sch-input">
+                    <input type="text" class="form-control" placeholder="검색어를 입력해주세요">
+                    <button type="button" class="btn btn-ico ico-sch">
+                        <span class="sr-only">검색</span>
+                    </button>
+                </div>
+                <button type="button" class="btn btn-txt sm ico-sch1 ico-before">고급검색</button>
+            </div>
+        </div>
+        <!-- //검색 입력폼 -->
+
+
+
+        <!-- 검색 결과 : 리스트 상단 -->
+        <div class="search-list-top type1">
+            <div class="sch-info">
+                검색 결과 <span class="keyword">24</span>건
+            </div>
+            <ul class="sch-sort">
+                <li class="li1 m-hide">
+                    <strong class="sort-label">목록 표시 개수</strong>
+                    <select class="sort-select">
+                        <option>10개</option>
+                        <option>9개</option>
+                    </select>
+                </li>
+                <li class="li2">
+                    <strong class="sort-label">정렬기준</strong>
+                    <div class="w-sort-btn">
+                        <button type="button" class="active">관련도순</button>
+                        <button type="button">최신순</button>
+                        <button type="button">인기순</button>
+                    </div>
+                    <div class="m-sort-btn">
+                        <select class="sort-select">
+                            <option>관련순개</option>
+                            <option>최신순</option>
+                            <option>인기순</option>
+                        </select>
+                        <button type="button" class="btn btn-txt ico-filter" onclick="common.popupEvent('#popFilterId')">
+                            <span class="span">필터</span>
+                            <span class="num">2</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- //검색 결과 : 리스트 상단 -->
+
+
+
+        <!-- 검색 결과 : 리스트 -->
+        <ul class="search-list type1">
+            <li th:each="entry : ${techbookEntries}" class="li">
+                <div class="in">
+                    <div class="card-top">
+                        <span class="krds-badge">스프링 정리</span> <!-- 뱃지 -->
+                        <div class="btn-area">
+                            <button type="button" class="btn sm btn-txt ico-share ico-before">공유하기</button>
+                            <button type="button" class="btn sm btn-txt ico-like ico-before">찜하기</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a th:href="@{'/techbook_detail/' + ${entry.id}}" class="c-text"> <!-- 게시물 상세 페이지 링크 -->
+                            <p class="c-tit"><span class="span" th:text="${entry.title}">제목 부분</span></p> <!-- 제목 -->
+                            <p class="c-txt" th:text="${entry.content}">내용부분</p> <!-- 내용 -->
+                            <p class="c-date">
+                                <strong class="key">등록 일</strong>
+                                <span class="value" th:text="${entry.createdAt}">2024.04.11</span> <!-- 등록 일 -->
+                            </p>
+                        </a>
+                        <div class="c-btn">
+                            <a href="#" class="btn md primary">조회</a>
+                        </div>
+                    </div>
+<!--                    <div class="card-btm">-->
+<!--                        <span class="tag" th:each="tag : ${entry.tags}" th:text="${tag}">스프링</span> &lt;!&ndash; 태그 &ndash;&gt;-->
+<!--                    </div>-->
+                </div>
+            </li>
+        </ul>
+        <!-- //검색 결과 : 리스트 -->
+
+
+
+        <!-- S: 페이지 버튼 영역-->
+        <div class="page-btn-wrap both">
+            <div class="btn-wrap">
+                <a href="/techbook_create_page"><button type="button" class="btn xlg">글쓰기</button></a>
+            </div>
+        </div>
+        <!-- E: 페이지 버튼 영역-->
+
+        <!-- 페이징 -->
+        <div class="pagination">
+            <a class="page-navi prev" href="#">이전</a>
+            <div class="page-links">
+                <!-- 페이지 번호는 동적으로 생성됨 -->
+                <span th:each="pageNumber : ${#numbers.sequence(0, pageable.totalPages - 1)}">
+            <a class="page-link" th:href="@{'/techbook_list?page=' + ${pageNumber}}" th:class="${pageNumber == pageable.number ? 'active' : ''}" th:text="${pageNumber + 1}"></a>
+        </span>
+            </div>
+            <a class="page-navi next" href="#">다음</a>
+        </div>
+
+        <!-- paging : 모바일 -->
+        <div class="pagination m-page">
+            <div class="page-navis">
+                <a class="page-navi prev" href="#">이전</a>
+                <a class="page-navi next" href="#">다음</a>
+            </div>
+            <div class="page-links">
+                <a class="page-link" href="#">1</a>
+                <span class="page-link link-dot"></span>
+                <a class="page-link" href="#">7</a>
+                <a class="page-link active" href="#">8</a>
+                <a class="page-link" href="#">9</a>
+                <span class="page-link link-dot"></span>
+                <a class="page-link" href="#">120</a>
+            </div>
+        </div>
+        <!-- //paging : 모바일 -->
+    </div>
+    <!-- //컨텐츠 영역 -->
+</div>
+<!-- ✨E: 방문록 컨테이너 -->
+
+<!-- ❤️ S: 푸터 영역 -->
+<section th:replace="~{layout/footer :: footer}"></section>
+<!-- ❤️ E: 푸터 영역 -->
+
+<!-- ✅ 스크립트 : 라이브러리 -->
+<script src="/js/pattern/jquery.min.js"></script>
+<script src="/js/pattern/swiper-bundle.min.js"></script>
+
+<!-- ✅ 스크립트 : 패턴 페이지 -->
+
+<script src="/js/pattern/ui-pattern-script.js"></script>
+
+<!-- ✅ 스크립트 : 컴포넌트 -->
+<script src="/js/component/ui-script.js"></script>

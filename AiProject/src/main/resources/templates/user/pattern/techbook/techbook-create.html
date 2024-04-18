@@ -67,17 +67,7 @@
             <h4 class="box-tit1">내용</h4>
 
                 <!-- Quill 에디터 요소 추가 -->
-                <div id="editor">
-                  <p>Hello World!</p>
-                  <p>Some initial <strong>bold</strong> text</p>
-                  <p><br /></p>
-                </div>
-
-                <p class="textarea-count">
-                  <span class="text-primary">0</span><span class="text-num">/100</span>
-                </p>
-
-          </div>
+                <div id="editor"> </div>
           <!-- //폼그룹 -->
         </div>
       </div>
@@ -86,13 +76,13 @@
 
     <!-- S: 페이지 버튼 영역-->
     <div class="page-btn-wrap both">
-      <a href="/guestbook_list">
+      <a href="/techbook_list">
         <button type="button" class="btn xlg tertiary">이전으로</button>
       </a>
 
       <div class="btn-wrap">
         <button type="button" class="btn xlg tertiary">임시저장</button>
-        <button type="button" class="btn xlg" onclick="registerGuestbook()">등록</button>
+        <button type="button" class="btn xlg" onclick="registerTechbook()">등록</button>
       </div>
     </div>
     <!-- E: 페이지 버튼 영역-->
@@ -109,15 +99,7 @@
 <!-- ❤️ E: 푸터 영역 -->
 
 
-<!-- Initialize Quill editor -->
-<script>
-  // Quill 초기화
-  document.addEventListener("DOMContentLoaded", function (event) {
-    var quill = new Quill('#editor', {
-      theme: 'snow'
-    });
-  });
-</script>
+
 
 
 
@@ -140,5 +122,5 @@
 <!-- ✅ 스크립트 : 컴포넌트 -->
 <script src="/js/component/ui-script.js"></script>
 
-<!-- ✅ 스크립트 : 해당 페이지(방문록) -->
-<!--<script src="/js/guestbook/guestbook.js"></script>-->
+<!-- ✅ 스크립트 : 해당 페이지(기술 게시판) -->
+<script src="/js/techbook/techbook.js"></script>
