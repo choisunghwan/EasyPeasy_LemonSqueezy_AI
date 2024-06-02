@@ -37,6 +37,8 @@ dependencies {
 	implementation 'mysql:mysql-connector-java:8.0.27' // MySQL 버전에 맞게 변경
 
 
+	implementation 'org.springframework.boot:spring-boot-starter-websocket' // 웹소켓 의존성 추가
+
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
