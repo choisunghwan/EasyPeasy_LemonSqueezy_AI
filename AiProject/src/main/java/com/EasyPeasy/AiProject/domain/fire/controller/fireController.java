@@ -1,13 +1,20 @@
 package com.EasyPeasy.AiProject.domain.fire.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@RestController
-@RequestMapping("/api")
+@Controller
 public class fireController {
+
+    @GetMapping("/fire_list")
+    public String showFireDetectLogPage(){
+
+        return "user/pattern/fire/fire-list";
+
+    }
 
     @PostMapping("/fire-alert")
     public ResponseEntity<String> fireAlert(@RequestBody Map<String, Object> payload) {
